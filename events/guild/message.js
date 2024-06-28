@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
         const mentionEmbed = new Discord.MessageEmbed()
             .setColor(config.EMBED_COLOR)
             .setTitle("Have I been called?")
-            .setDescription(`\`Hey ${message.author.username}, are you the one who called me? My prefix is ${config.PREFIX}\``)
+            .setDescription(`\`Hey ${message.author.username}, are you the one who called me? My prefix is: ${config.PREFIX}\``)
             .setTimestamp()
             .setFooter(client.user.tag, client.user.displayAvatarURL({ dynamic: true }));
 
