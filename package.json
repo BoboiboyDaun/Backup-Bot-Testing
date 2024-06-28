@@ -1,0 +1,13 @@
+{
+  "name": "TesTingBots",
+  "version": "3.0.1",
+  "main": "index.js",
+  "author": "ItsMeZeto 🇵🇸✊🏻 | [DC: zetoboymaccalan_01]",
+  "dependencies": {
+    "colorette": "^2.0.20",
+    "discord-backup": "^2.5.0",
+    "discord.js": "^12.5.3",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
