@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { Collection } = require('discord.js');
-const { red, green, yellow } = require('colorette');
+const { red, green, yellow, blue, cyan, purple } = require('colorette');
 
 module.exports = (client) => {
     client.commands = new Collection();
