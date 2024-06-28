@@ -5,7 +5,7 @@ const config = require('../../config.json');
 
 module.exports = {
     name: "backup-list",
-    aliases: ["backuplist"],
+    aliases: ["blist", "backuplist"],
     category: "backup",
     usage: "backup-list",
     description: "List all server backups",
