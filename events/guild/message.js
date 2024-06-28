@@ -51,7 +51,7 @@ module.exports = async (client, message) => {
             const unknownCommandEmbed = new Discord.MessageEmbed()
                 .setColor(config.EMBED_COLOR)
                 .setTitle("Unknown Command")
-                .setDescription(`\`Hey ${message.author.username}, I didn't understand that command. Try using my prefix ${config.PREFIX} followed by a valid command.\``)
+                .setDescription(`\`Hey ${message.author.username}, I didn't understand that command. Try using my prefix: ${config.PREFIX}help to followed by a valid command.\``)
                 .setTimestamp()
                 .setFooter(client.user.tag, client.user.displayAvatarURL({ dynamic: true }));
 
