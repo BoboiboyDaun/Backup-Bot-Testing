@@ -1,0 +1,8 @@
+{
+    "TOKEN": "YOUR_BOT_TOKEN",
+    "OWNER_ID": "YOUR_ID",
+    "CLIENT_ID": "YOUR_CLIENT_ID",
+    "PREFIX": "YOUR_PREFIX",
+    "EMBED_COLOR": "GREEN",
+    "PROCESSING_COLOR": "BLUE"
+}
