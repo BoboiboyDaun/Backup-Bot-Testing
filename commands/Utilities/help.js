@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
+const config = require('../../config.json');
 
 module.exports = {
   name: "help",
@@ -13,7 +14,7 @@ module.exports = {
       const categories = fs.readdirSync(dir);
 
       let embed = new MessageEmbed()
-        .setColor("BLUE")
+        .setColor(`${config.EMBED_COLOR}`)
         .setTitle("⚙️ List Of Commands")
         .setThumbnail(client.user.displayAvatarURL())
         .setFooter(`Requested By ${message.author.username}`, message.author.displayAvatarURL())
