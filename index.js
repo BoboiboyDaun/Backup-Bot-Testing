@@ -8,5 +8,5 @@ client.config = config;
 require('./handlers/loadEvent')(client);
 require('./handlers/loadCommand')(client);
 
-// Login
+// Client Login
 client.login(config.TOKEN);
