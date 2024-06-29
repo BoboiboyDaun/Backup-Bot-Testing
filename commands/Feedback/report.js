@@ -35,7 +35,7 @@ module.exports = {
         const channel = client.channels.cache.get(report_log);
 
         if (!args[0]) {
-            const reply = await message.reply(`:x: Please provide a report so that we can look through !! **\`*report [Your report]\`**`);
+            const reply = await message.reply(`:x: Please provide a report so that we can look through !! \`${config.PREFIX}report [Your report]\`.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
