@@ -44,7 +44,7 @@ module.exports = {
             message.channel.send("**[Success]** `Cleared backup DMs for unavailable backup IDs.`");
         } catch (error) {
             console.error("Error clearing backup DMs:", error);
-            return message.channel.send(`:x: An error occurred while clearing the backup DMs. If the issue persists, please type \`[ report Your_Report_Message ]\`.`);
+            return message.channel.send(`:x: An error occurred while clearing the backup DMs. If the issue persists, please type \`[ ${config.PREFIX}report Your_Report_Message ]\`.`);
         }
     }
 };
