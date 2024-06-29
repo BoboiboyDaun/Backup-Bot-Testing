@@ -59,7 +59,7 @@ module.exports = {
             await message.author.send(backupID, dmEmbed);
         } catch (error) {
             console.error("Error creating backup:", error);
-            return message.channel.send(":x: An error occurred while creating the backup. If the issue persists, please type `[ 1report Your_Report_Message ]`.");
+            return message.channel.send(`:x: An error occurred while creating the backup. If the issue persists, please type \`[ ${config.PREFIX}report Your_Report_Message ]\`.`);
         }
     }
 };
