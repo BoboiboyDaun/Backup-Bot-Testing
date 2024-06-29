@@ -10,4 +10,4 @@ Backup-Bot is a bot for creating Discord backup servers, you can restore your se
 
 **Live in:** `Indonesia - East Java`
 
-**I Learn Programming Language:** `Javascript, html, python [Currently studying it]`
+**I Learn Programming Language:** `Javascript, html, python [Currently studying it and only understand a little]`
