@@ -15,7 +15,7 @@ module.exports = {
 
       let embed = new MessageEmbed()
         .setColor(`${config.EMBED_COLOR}`)
-        .setTitle("⚙️ List Of Commands")
+        .setTitle("📦 List Of Commands")
         .setThumbnail(client.user.displayAvatarURL())
         .setFooter(`Requested By ${message.author.username}`, message.author.displayAvatarURL())
         .setTimestamp();
