@@ -24,7 +24,7 @@ module.exports = {
 
         if (fs.existsSync(dataPath)) {
             const existingData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-            const reply = await message.reply(`:x: The report log channel is already set to <#${existingData.reportLogChannel}>.`);
+            const reply = await message.reply(`:x: \`The report log channel is already set to\` <#${existingData.reportLogChannel}>.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
