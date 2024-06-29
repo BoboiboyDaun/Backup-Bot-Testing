@@ -83,7 +83,7 @@ module.exports = {
         };
         fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf8');
 
-        const response = await message.channel.send(`âœ”ï¸ The report log channel has been set to ${channel}.`);
+        const response = await message.channel.send(`📬 The report log channel has been set to ${channel}.`);
         setTimeout(() => {
             response.delete().catch(err => console.error('Failed to delete message:', err));
         }, 7000);
