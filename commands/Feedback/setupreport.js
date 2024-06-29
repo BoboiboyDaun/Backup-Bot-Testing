@@ -63,7 +63,7 @@ module.exports = {
         }
 
         if (mentions.length === 0) {
-            const reply = await message.reply(`:x: You must mention at least one user or role. **\`*setupreport [#channel] [@mention] [description]\`**`);
+            const reply = await message.reply(`:x: You must mention at least one user or role. \`${config.PREFIX}setupreport [#channel] [@mention] [description]\`.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
