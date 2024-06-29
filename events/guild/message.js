@@ -4,7 +4,7 @@ const config = require('../../config.json');
 module.exports = async (client, message) => {
     if (message.author.bot) return;
 
-    // Handle mention without prefix and without following command
+    // Mention | Mention commands_name
     if (message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
         const mentionEmbed = new Discord.MessageEmbed()
             .setColor(config.EMBED_COLOR)
@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
         return;
     }
 
-    // Handle commands with prefix
+    // Commands with prefix
     if (message.content.startsWith(config.PREFIX) || message.content.match(new RegExp(`^<@!?${client.user.id}>\\s*`))) {
         // Extract command and arguments
         let args = [];
@@ -37,7 +37,6 @@ module.exports = async (client, message) => {
             command = args.shift().toLowerCase();
         }
 
-        // Find the command
         const cmd = client.commands.get(command) || client.commands.find(a => a.aliases && a.aliases.includes(command));
 
         if (cmd) {
