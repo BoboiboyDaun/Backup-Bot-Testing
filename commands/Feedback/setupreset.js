@@ -22,7 +22,7 @@ module.exports = {
 
         if (fs.existsSync(dataPath)) {
             fs.unlinkSync(dataPath);
-            const response = await message.channel.send("âœ¨ The report log channel setup has been reset.");
+            const response = await message.channel.send("📭 The report log channel setup has been reset.");
             setTimeout(() => {
                 response.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
