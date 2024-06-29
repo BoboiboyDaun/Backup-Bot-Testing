@@ -98,7 +98,7 @@ module.exports = {
 
         } catch (error) {
             console.error("Error listing backups:", error);
-            return message.channel.send(`:x: An error occurred while listing the backups. If the issue persists, please type `\[ ${config.PREFIX}report Your_Report_Message ]\`.`);
+            return message.channel.send(`:x: An error occurred while listing the backups. If the issue persists, please type \`[ ${config.PREFIX}report Your_Report_Message ]\`.`);
         }
     }
 };
