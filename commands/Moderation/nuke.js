@@ -10,7 +10,6 @@ module.exports = {
       return message.channel.send("You don't have `ADMINISTRATOR` or `MANAGE_GUILD` permission!");
     }
 
-    // Warning before executing nuking channel
     const confirmation = await message.channel.send("Are you sure you want to delete this channel? Click 💥 to detonate... and click 💤 to cancel. You have 10-15 seconds to react.");
 
     await confirmation.react('💥');
@@ -21,7 +20,6 @@ module.exports = {
 
     collector.on('collect', async (reaction) => {
       if (reaction.emoji.name === '💥') {
-        // Sending message with rocket emoji
         const response = await message.channel.send("👨‍💻 Preparing nuke...");
 
         setTimeout(() => {
