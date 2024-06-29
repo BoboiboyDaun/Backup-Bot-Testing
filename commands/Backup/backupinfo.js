@@ -82,8 +82,8 @@ module.exports = {
 
             message.delete();
         }).catch((err) => {
-            const errorMessage = (err === 'No backup found') ? `:x: No backup found for ID ${backupID}!` : `:x: An error occurred: ${typeof err === 'string' ? err : JSON.stringify(err)} If you still experience the same problem, you can report your problem by typing \`[ 1report Your_Report_Message ]\``;
-            const errorEmbed = new Discord.MessageEmbed().setColor(config.EMBED_COLOR).setDescription(errorMessage);
+            const errorMessage = (err === 'No backup found') ? `:x: No backup found for ID ${backupID}!` : `:x: An error occurred: ${typeof err === 'string' ? err : JSON.stringify(err)} If you still experience the same problem, you can report your problem by typing \`[ ${config.PREFIX}report Your_Report_Message ]\``;
+            const errorEmbed = new Discord.MessageEmbed().setColor(config.ERROR_COLOR).setDescription(errorMessage);
 
             setTimeout(() => {
                 msg.edit(errorEmbed);
