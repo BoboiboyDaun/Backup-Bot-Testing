@@ -11,7 +11,7 @@ module.exports = {
     aliases: ["srp"],
     category: "Admin",
     description: "Setup a channel for report logs with mentions and optional description",
-    example: `*setupreport #report-log @mention_user || @mention_role Custom message`,
+    example: `1setupreport #report-log @mention_user || @mention_role Custom message`,
 
     run: async (client, message, args) => {
         if (!message.member.hasPermission('ADMINISTRATOR') || !message.member.hasPermission('MANAGE_GUILD') || !message.member.hasPermission('MANAGE_CHANNELS')) {
@@ -33,7 +33,7 @@ module.exports = {
 
         const channelMention = args[0];
         if (!channelMention) {
-            const reply = await message.reply(`:x: Please mention a channel to set up as the report log channel. **\`*setupreport [#channel] [@mention] [description]\`**`);
+            const reply = await message.reply(`:x: Please mention a channel to set up as the report log channel. \`${config.PREFIX]setupreport [#channel] [@mention] [description]\`.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
