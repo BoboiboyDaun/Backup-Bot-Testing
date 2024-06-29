@@ -57,7 +57,7 @@ module.exports = {
         backup.fetch(backupID).then(() => {
             const embed = new Discord.MessageEmbed()
                 .setTitle("Read below")
-                .setDescription(':warning: All the server channels, roles, and settings will be cleared. Do you want to continue? Send `yes` or `cancel`!')
+                .setDescription('🚨 All the server channels, roles, and settings will be cleared. Do you want to continue? Send `yes` or `cancel`!')
                 .setThumbnail(client.user.displayAvatarURL())
                 .setTimestamp()
                 .setFooter(`${client.user.tag}`, client.user.displayAvatarURL());
