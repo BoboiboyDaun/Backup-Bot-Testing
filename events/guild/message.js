@@ -4,7 +4,7 @@ const config = require('../../config.json');
 module.exports = async (client, message) => {
     if (message.author.bot) return;
 
-    // Mention | Mention commands_name
+    // Mentioned
     if (message.content.match(new RegExp(`^<@!?${client.user.id}>$`))) {
         const mentionEmbed = new Discord.MessageEmbed()
             .setColor(config.EMBED_COLOR)
