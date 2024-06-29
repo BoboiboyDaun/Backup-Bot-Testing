@@ -33,7 +33,7 @@ module.exports = {
 
         const channelMention = args[0];
         if (!channelMention) {
-            const reply = await message.reply(`:x: Please mention a channel to set up as the report log channel. \`${config.PREFIX]setupreport [#channel] [@mention] [description]\`.`);
+            const reply = await message.reply(`:x: Please mention a channel to set up as the report log channel. \`${config.PREFIX}setupreport [#channel] [@mention] [description]\`.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
