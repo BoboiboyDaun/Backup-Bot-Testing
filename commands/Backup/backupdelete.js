@@ -151,7 +151,7 @@ module.exports = {
                         return;
                     } catch (error) {
                         console.error("Error deleting backup:", error);
-                        return message.channel.send(":x: An error occurred while deleting the backup. If the issue persists, please type `[ 1report your_message_report ]`.");
+                        return message.channel.send(`:x: An error occurred while deleting the backup. If the issue persists, please type \`[ ${config.PREFIX}report your_message_report ]\`.`);
                     }
                 } else if (response === 'cancel') {
                     return message.channel.send("Backup deletion cancelled.");
