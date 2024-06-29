@@ -61,7 +61,7 @@ module.exports = {
         // combine message and embed
         await channel.send(fullMessage, Embed);
 
-        const response = await message.channel.send(`✨ Your report has been sent to my developer !!`);
+        const response = await message.channel.send(`📨 Your report has been sent to my developer !!`);
         setTimeout(() => {
             response.delete().catch(err => console.error('Failed to delete message:', err));
         }, 7000);
