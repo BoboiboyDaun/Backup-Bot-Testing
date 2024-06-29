@@ -15,7 +15,7 @@ module.exports = {
 
     run: async (client, message, args) => {
         if (!message.member.hasPermission('ADMINISTRATOR') || !message.member.hasPermission('MANAGE_GUILD') || !message.member.hasPermission('MANAGE_CHANNELS')) {
-            const reply = await message.reply(":x: You don't have ADMINISTRATOR, MANAGE_GUILD, or MANAGE_CHANNELS permission.");
+            const reply = await message.reply(":x: You don't have `[ADMINISTRATOR, MANAGE_GUILD, MANAGE_CHANNELS]` permission.");
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
