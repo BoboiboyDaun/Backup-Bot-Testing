@@ -9,7 +9,7 @@ const dataPath = path.resolve(channelsDir, 'data.json');
 module.exports = {
     name: "report",
     aliases: ["rp"],
-    category: "Misc",
+    category: "Feedback",
     description: "To report us any bugs or anything !!",
     example: `1report Bot is not working`,
 
