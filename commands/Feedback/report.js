@@ -25,7 +25,7 @@ module.exports = {
         const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
         const report_log = data.reportLogChannel;
         if (!report_log) {
-            const reply = await message.reply(":x: The report log channel is not set. Please ask an administrator to set it up using `*setupreport`.");
+            const reply = await message.reply(`:x: The report log channel is not set. Please ask an administrator to set it up using \`${config.PREFIX}setupreport\`.`);
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
