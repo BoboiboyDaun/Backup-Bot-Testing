@@ -79,7 +79,7 @@ module.exports = {
                             .setDescription('🚀 | Backup loaded successfully on `' + message.guild.name + '`!');
 
                         message.author.send(embed1).then(msg => {
-                            setTimeout(() => msg.delete(), 15000); // Delete the message after 15 seconds
+                            setTimeout(() => msg.delete(), 15000); // Delete message after 15 seconds
                         });
                     }).catch((err) => {
                         const errorMessage = (err === 'No backup found') ? ':x: No backup found for ID ' + backupID + '!' : ':x: An error occurred: ' + (typeof err === 'string' ? err : JSON.stringify(err));
