@@ -65,7 +65,7 @@ module.exports = {
         backup.fetch(backupID).then((backupData) => {
             const date = new Date(backupData.data.createdTimestamp);
             const formattedDate = `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDate()}`;
-            // const owner = backupData.owner ? backupData.owner.tag : "Unknown";// // Undefined ( I forgot how I used to execute it )
+            // const owner = backupData.owner ? backupData.owner.tag : "Unknown";// // Undefined ( I forgot how I used to make the script )
 
             const embed = new Discord.MessageEmbed()
                 .setColor(config.EMBED_COLOR)
