@@ -1,2 +1,1 @@
-This is the place to hold all the backup data
-from the user, and I have separated the BackupID placement to make it much better and less confusing (an example of the structure I have made: BackupsID/username/servername/backupid.json)
+This is the place to hold all the backup data from the user, and I have separated the BackupID placement to make it much better and less confusing (an example of the structure I have made: BackupsID/username/servername/backupid.json)
