@@ -74,7 +74,7 @@ module.exports = {
                 .addField('Size', backupData.size + ' kb')
                 //.addField('Creator', owner)//
                 .addField('Created At', formattedDate)
-                .setFooter('Backup ID: Hidden for Security');
+                .setFooter('Backup ID: Hidden to prevent misuse');
 
             setTimeout(() => {
                 msg.edit(embed);
