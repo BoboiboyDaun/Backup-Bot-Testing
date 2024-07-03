@@ -65,14 +65,14 @@ module.exports = {
         backup.fetch(backupID).then((backupData) => {
             const date = new Date(backupData.data.createdTimestamp);
             const formattedDate = `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDate()}`;
-            const owner = backupData.owner ? backupData.owner.tag : "Unknown";
+            // const owner = backupData.owner ? backupData.owner.tag : "Unknown";// // Undefined ( I forgot how I used to execute it )
 
             const embed = new Discord.MessageEmbed()
                 .setColor(config.EMBED_COLOR)
                 .setAuthor(':information_source: Backup', backupData.data.iconURL)
                 .addField('Server Name', backupData.data.name)
                 .addField('Size', backupData.size + ' kb')
-                .addField('Creator', owner)
+                //.addField('Creator', owner)//
                 .addField('Created At', formattedDate)
                 .setFooter('Backup ID: Hidden for Security');
 
