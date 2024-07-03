@@ -11,9 +11,9 @@ module.exports = {
     description: "Clear backup DM if the backup ID is not available in the folder path",
     run: async (client, message, args) => {
         try {
-            if (!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) {
+            /*if (!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) {
                 return message.channel.send("You don't have `ADMINISTRATOR` or `MANAGE_GUILD` permission!");
-            }
+            }*/
 
             const username = message.author.username;
             const serverName = message.guild.name;
