@@ -13,7 +13,7 @@ module.exports = {
         try {
             /*if (!message.member.hasPermission("ADMINISTRATOR") && !message.member.hasPermission("MANAGE_GUILD")) {
                 return message.channel.send("You don't have `ADMINISTRATOR` or `MANAGE_GUILD` permission!");
-            }*/
+            }*/ // Remove /* */ if you want to activate the filter permissions
 
             const username = message.author.username;
             const serverName = message.guild.name;
