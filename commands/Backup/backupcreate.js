@@ -40,7 +40,6 @@ module.exports = {
             });
 
             const backupID = backupData.id;
-            const backupDataSize = backupData.size;
             await processingMessage.delete();
 
             message.channel.send("**[Success]** `Backup created successfully! Check your DM for details.`");
@@ -50,8 +49,7 @@ module.exports = {
                 .setTitle("Backup Information")
                 .setDescription("`Your backup has been created successfully!`")
                 .addField("Server Name", message.guild.name)
-                .addField("Backup ID", backupID)
-                .addField("Backup Size", backupDataSize)
+                .addField("Backup ID", backupID),
                 .setThumbnail(client.user.displayAvatarURL())
                 .setTimestamp()
                 .setFooter(`${client.user.tag}`, client.user.displayAvatarURL());
