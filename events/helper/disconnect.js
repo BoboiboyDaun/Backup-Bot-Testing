@@ -7,7 +7,7 @@ module.exports = (client, event) => {
   console.error(red(message));
   logMessage(message);
 
-  // Reconnect logic
+  // Reconnect
   if (event.code !== 1000) {
     setTimeout(() => {
       client.login(config.TOKEN).catch(console.error);
