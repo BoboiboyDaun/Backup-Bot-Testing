@@ -29,7 +29,7 @@ module.exports = {
         }
 
         const channelFolders = fs.readdirSync(guildFolderPath);
-        console.log(`Channel folders found: ${channelFolders}`); // Debugging log
+        /*console.log(`Channel folders found: ${channelFolders}`);*/
 
         if (!channelFolders.length) {
             const noChannelsMsg = await message.channel.send("No YouTube channels are being monitored in this server.");
