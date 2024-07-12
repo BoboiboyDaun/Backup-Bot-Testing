@@ -101,7 +101,7 @@ module.exports = {
 
                         const notificationChannel = message.guild.channels.cache.get(discordChannel.id);
                         if (notificationChannel) {
-                            const notificationMessage = `# YOUTUBE ANNOUNCEMENT\n> Hi everyone, **${latestStream.snippet.channelTitle}** is currently streaming now!...watch it now!!\n\nTitle: **${latestStream.snippet.title}**\nThumbnail: [Click Here!!](${latestStream.snippet.thumbnails.high.url})\nLink Youtube: [Click Here](https://www.youtube.com/watch?v=${latestStream.id.videoId})`;
+                            const notificationMessage = `# YOUTUBE ANNOUNCEMENT\n> Hi everyone, **${latestStream.snippet.channelTitle}** is currently streaming now!...watch it now!!\n\n> Title: **${latestStream.snippet.title}**\n> Thumbnail: [Click Here!!](${latestStream.snippet.thumbnails.high.url})\n> Link Youtube: [Click Here](https://www.youtube.com/watch?v=${latestStream.id.videoId})`;
 
                             notificationChannel.send(notificationMessage, streamEmbed);
 
