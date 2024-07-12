@@ -20,7 +20,7 @@ module.exports = {
         }
 
         const guildFolderPath = path.join(__dirname, "YouTubeChannel", message.guild.name);
-        console.log(`Checking guild folder path: ${guildFolderPath}`); // Debugging log
+        /*console.log(`Checking guild folder path: ${guildFolderPath}`);*/
 
         if (!fs.existsSync(guildFolderPath)) {
             const noChannelsMsg = await message.channel.send("No YouTube channels are being monitored in this server.");
