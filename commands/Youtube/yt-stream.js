@@ -91,7 +91,7 @@ module.exports = {
                         lastCheckedStreamId = latestStream.id.videoId;
 
                         const streamEmbed = new Discord.MessageEmbed()
-                            .setColor(config.EMBED_COLOR)
+                            .setColor(config.STREAM_COLOR)
                             .setTitle(latestStream.snippet.title)
                             .setURL(`https://www.youtube.com/watch?v=${latestStream.id.videoId}`)
                             .setDescription(latestStream.snippet.description)
