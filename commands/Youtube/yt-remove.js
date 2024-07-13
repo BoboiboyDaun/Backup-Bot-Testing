@@ -1,4 +1,4 @@
-// IT'S NOT WORKING FOR NOW, I'LL TRY TO UPDATE IT LATER HEHE...I FORGOT THE SCRIPT ADJUSTMENT :V
+// IT'S NOT WORKING FOR NOW, I'LL TRY TO UPDATE IT LATER HEHE...I FORGOT THE SCRIPT ADJUSTMENT:V
 const Discord = require('discord.js');
 const config = require('../../config.json');
 const fs = require('fs');
