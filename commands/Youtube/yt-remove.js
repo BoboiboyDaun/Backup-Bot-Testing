@@ -1,4 +1,3 @@
-// IT'S NOT WORKING FOR NOW, I'LL TRY TO UPDATE IT LATER HEHE...I FORGOT THE SCRIPT ADJUSTMENT:V
 const Discord = require('discord.js');
 const config = require('../../config.json');
 const fs = require('fs');
@@ -6,51 +5,78 @@ const path = require('path');
 
 module.exports = {
     name: "yt-remove",
-    aliases: ["yt-rm", "yt-delete"],
+    aliases: ["yt-unsubscribe", "youtube-remove"],
     category: "notifications",
-    usage: "yt-remove <upload|stream> <YouTube Channel ID>",
-    description: "Remove YouTube channel notifications for uploads or streams",
+    usage: "yt-remove <YouTube Channel ID> <upload|stream>",
+    description: "Remove YouTube channel notifications",
     run: async (client, message, args) => {
-        message.delete()
-        
+        message.delete().catch(console.error);
+
         if (!message.member.hasPermission("ADMINISTRATOR") && 
             !message.member.hasPermission("MANAGE_CHANNELS") && 
             !message.member.hasPermission("MANAGE_GUILD")) {
-            return message.channel.send("You don't have `ADMINISTRATOR`, `MANAGE_CHANNELS`, or `MANAGE_GUILD` permission!");
+            const noPermissionMsg = await message.channel.send("You don't have `ADMINISTRATOR`, `MANAGE_CHANNELS`, or `MANAGE_GUILD` permission!");
+            noPermissionMsg.delete({ timeout: 10000 }).catch(console.error);
+            return;
         }
 
-        const type = args[0];  // "upload" or "stream"
-        const youtubeChannelId = args[1];
+        const youtubeChannelId = args[0];
+        const type = args[1];
 
-        if (!type || !youtubeChannelId) {
-            return message.channel.send("Usage: yt-remove <upload|stream> <YouTube Channel ID>");
-        }
-
-        if (type !== 'upload' && type !== 'stream') {
-            return message.channel.send("Invalid type specified. Use 'upload' or 'stream'.");
-        }
-
-        const serverFolderPath = path.join(__dirname, "YouTubeChannel", message.guild.name);
-        const channelFolderPath = path.join(serverFolderPath, youtubeChannelId);
-        const filePath = path.join(channelFolderPath, `${type}.json`);
-
-        if (!fs.existsSync(channelFolderPath) || !fs.existsSync(filePath)) {
-            return message.channel.send(`This YouTube channel is not being monitored for ${type} notifications in this server.`);
+        if (!youtubeChannelId || !type || !["upload", "stream"].includes(type.toLowerCase())) {
+            const usageMsg = await message.channel.send("Usage: yt-remove <YouTube Channel ID> <upload|stream>");
+            usageMsg.delete({ timeout: 10000 }).catch(console.error);
+            return;
         }
 
         try {
-            fs.unlinkSync(filePath);
+            const guildFolderPath = path.join(__dirname, "YouTubeChannel", message.guild.name);
+            const folders = fs.readdirSync(guildFolderPath);
 
-            // Remove the folder if both files are deleted
-            const remainingFiles = fs.readdirSync(channelFolderPath);
-            if (remainingFiles.length === 0) {
-                fs.rmdirSync(channelFolderPath);
+            let channelFound = false;
+            let filePathToRemove = null;
+
+            folders.forEach(folder => {
+                const channelFolderPath = path.join(guildFolderPath, folder);
+                const channelFilePath = path.join(channelFolderPath, 'channel.json');
+                const streamFilePath = path.join(channelFolderPath, 'stream.json');
+
+                if (type.toLowerCase() === "upload" && fs.existsSync(channelFilePath)) {
+                    const channelData = JSON.parse(fs.readFileSync(channelFilePath, 'utf-8'));
+                    if (channelData.youtubeChannelId === youtubeChannelId) {
+                        filePathToRemove = channelFilePath;
+                        channelFound = true;
+                    }
+                }
+
+                if (type.toLowerCase() === "stream" && fs.existsSync(streamFilePath)) {
+                    const streamData = JSON.parse(fs.readFileSync(streamFilePath, 'utf-8'));
+                    if (streamData.youtubeChannelId === youtubeChannelId) {
+                        filePathToRemove = streamFilePath;
+                        channelFound = true;
+                    }
+                }
+
+                if (channelFound && filePathToRemove) {
+                    fs.unlinkSync(filePathToRemove);
+                    const remainingFiles = fs.readdirSync(channelFolderPath);
+                    if (remainingFiles.length === 0) {
+                        fs.rmdirSync(channelFolderPath);
+                    }
+                }
+            });
+
+            if (channelFound) {
+                const successMsg = await message.channel.send(`Successfully removed ${type} notifications for YouTube channel with ID: ${youtubeChannelId}.`);
+                successMsg.delete({ timeout: 10000 }).catch(console.error);
+            } else {
+                const notFoundMsg = await message.channel.send(`YouTube channel with ID: ${youtubeChannelId} not found.`);
+                notFoundMsg.delete({ timeout: 10000 }).catch(console.error);
             }
-
-            message.channel.send(`Successfully removed ${type} notifications for the YouTube channel.`);
         } catch (error) {
-            console.error("Error removing YouTube channel data:", error);
-            message.channel.send(`:x: An error occurred while removing the YouTube channel notifications. If the issue persists, please type \`[ ${config.PREFIX}report Your_Report_Message ]\`.`);
+            console.error("Error removing YouTube channel:", error);
+            const errorMsg = await message.channel.send(`:x: An error occurred while removing the YouTube channel. If the issue persists, please type \`[ ${config.PREFIX}report Your_Report_Message ]\`.`);
+            errorMsg.delete({ timeout: 10000 }).catch(console.error);
         }
     }
 };
