@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const config = require('../../config.json');
-
 const channelsDir = path.resolve(__dirname, '../Feedback/Channels');
 const dataPath = path.resolve(channelsDir, 'data.json');
 
@@ -14,8 +13,8 @@ module.exports = {
     example: `1setupreport #report-log @mention_user || @mention_role Custom message`,
 
     run: async (client, message, args) => {
-        if (!message.member.hasPermission('ADMINISTRATOR') || !message.member.hasPermission('MANAGE_GUILD') || !message.member.hasPermission('MANAGE_CHANNELS')) {
-            const reply = await message.reply(":x: You don't have `[ADMINISTRATOR, MANAGE_GUILD, MANAGE_CHANNELS]` permission.");
+        if (message.author.id !== config.OWNER_ID) {
+            const reply = await message.reply(":x: You are not authorized to use this command, only my owner can use this command.");
             setTimeout(() => {
                 reply.delete().catch(err => console.error('Failed to delete message:', err));
             }, 7000);
