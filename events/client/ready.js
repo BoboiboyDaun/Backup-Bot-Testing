@@ -1,5 +1,5 @@
 const statusActivity = require('./statusActivity');
-const { red, yellow, green, blue, cyan, purple } = require('colorotte');
+const { red, yellow, green, blue, cyan, purple } = require('colorette');
 
 module.exports = async (client) => {
   statusActivity(client); // Set up bot status activity
