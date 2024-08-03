@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-cosnt config = require('../../config.json');
+const config = require('../../config.json');
 const channelsDir = path.resolve(__dirname, '../Feedback/Channels');
 const dataPath = path.resolve(channelsDir, 'data.json');
 
