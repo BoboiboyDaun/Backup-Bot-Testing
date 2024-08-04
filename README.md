@@ -2,6 +2,10 @@
 
 Backup-Bot is a bot for creating Discord backup servers, you can restore your server using this backup server bot, thank you
 
+# NOTE
+
+Require Discord.js v12
+
 # Bio Information
 
 **Author:** `ItsMeZeto 🇵🇸✊🏻 [DC: zetoboymaccalan_01]`
